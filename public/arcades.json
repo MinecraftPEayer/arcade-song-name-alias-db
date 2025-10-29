@@ -1,19 +1,74 @@
 [
-    "maimai",
-    "chunithm",
-    "sdvx",
-    "jubeat",
-    "wacca",
-    "taiko",
-    "ongeki",
-    "polarischord",
-    "ddr",
-    "drs",
-    "gc",
-    "popn",
-    "nostalgia",
-    "diva",
-    "rb",
-    "museca",
-    "crossbeats"
+    {
+        "id": "maimai",
+        "name": "maimai"
+    },
+    {
+        "id": "chunithm",
+        "name": "CHUNITHM"
+    },
+    {
+        "id": "sdvx",
+        "name": "SOUND VOLTEX"
+    },
+    {
+        "id": "jubeat",
+        "name": "jubeat"
+    },
+    {
+        "id": "wacca",
+        "name": "WACCA"
+    },
+    {
+        "id": "taiko",
+        "name": "太鼓の達人"
+    },
+    {
+        "id": "ongeki",
+        "name": "オンゲキ"
+    },
+    {
+        "id": "polarischord",
+        "name": "ポラリスコード"
+    },
+    {
+        "id": "ddr",
+        "name": "Dance Dance Revolution"
+    },
+    {
+        "id": "drs",
+        "name": "DANCERUSH STARDOM"
+    },
+    {
+        "id": "gitadora",
+        "name": "GITADORA"
+    },
+    {
+        "id": "gc",
+        "name": "GROOVE COASTER"
+    },
+    {
+        "id": "nostalgia",
+        "name": "ノスタルジア"
+    },
+    {
+        "id": "popn",
+        "name": "pop'n music"
+    },
+    {
+        "id": "diva",
+        "name": "Project DIVA Arcade"
+    },
+    {
+        "id": "rb",
+        "name": "REFLEC BEAT"
+    },
+    {
+        "id": "museca",
+        "name": "MUSECA"
+    },
+    {
+        "id": "crossbeats",
+        "name": "crossbeats REV."
+    }
 ]
