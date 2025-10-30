@@ -8,7 +8,7 @@ import {
     Link,
 } from '@mui/material';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MainForm = ({
     loggedIn,
@@ -39,6 +39,21 @@ const MainForm = ({
     const [submitColor, setSubmitColor] = useState<
         'primary' | 'success' | 'error'
     >('primary');
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleSubmit = async () => {
         setSending(true);
@@ -111,7 +126,9 @@ const MainForm = ({
                 </div>
                 <div>
                     <Autocomplete
-                        sx={{ width: 400 }}
+                        sx={{
+                            width: windowWidth < 808 ? windowWidth - 80 : 768,
+                        }}
                         renderInput={(params) => (
                             <TextField
                                 {...params}
@@ -138,7 +155,10 @@ const MainForm = ({
                 <div>
                     <Autocomplete
                         disabled={selectedArcade === ''}
-                        sx={{ width: 400, marginTop: 2 }}
+                        sx={{
+                            width: windowWidth < 808 ? windowWidth - 80 : 768,
+                            marginTop: 2,
+                        }}
                         isOptionEqualToValue={(option, value) =>
                             option === value
                         }
@@ -161,7 +181,10 @@ const MainForm = ({
                 <div>
                     <Autocomplete
                         options={[]}
-                        sx={{ width: 400, marginTop: 2 }}
+                        sx={{
+                            width: windowWidth < 808 ? windowWidth - 80 : 768,
+                            marginTop: 2,
+                        }}
                         multiple
                         freeSolo
                         disabled={songName === ''}
@@ -204,7 +227,10 @@ const MainForm = ({
                         }
                         onClick={handleSubmit}
                         loading={sending}
-                        sx={{ width: 400, marginTop: 2 }}
+                        sx={{
+                            width: windowWidth < 808 ? windowWidth - 80 : 768,
+                            marginTop: 2,
+                        }}
                     >
                         {submitColor === 'success'
                             ? 'Success'
