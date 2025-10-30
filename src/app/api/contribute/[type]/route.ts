@@ -123,9 +123,9 @@ export const POST = async (
                 );
 
             const nowData = data[index];
-            nowData.alias = nowData.alias.filter(
-                (item) => !body.alias.some((alia) => alia === item.alia),
-            );
+            body.alias = body.alias.filter(
+                (item) => !nowData.alias.some((alia) => alia.alia === item)
+            )
             nowData.alias.push(
                 ...body.alias.map((alia: string) => ({
                     contributor: userId.id,
