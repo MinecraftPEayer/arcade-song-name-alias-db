@@ -129,7 +129,7 @@ export const POST = async (
             nowData.alias.push(
                 ...body.alias.map((alia: string) => ({
                     contributor: userId.id,
-                    alia: alia,
+                    alia: alia.trim(),
                 })),
             );
             data[index] = nowData;
