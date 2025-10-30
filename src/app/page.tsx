@@ -1,13 +1,4 @@
 'use client';
-import {
-    Alert,
-    Autocomplete,
-    Avatar,
-    Button,
-    Chip,
-    TextField,
-    Tooltip,
-} from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import axios from 'axios';
@@ -31,7 +22,6 @@ export default function Home() {
     const [searchList, setSearchList] = useState<
         Array<{ label: string; id: string }>
     >([]);
-    const [toastOpen, setToastOpen] = useState(false);
     const [noLogin, setNoLogin] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
     const [userInfo, setUserInfo] = useState<{
@@ -76,15 +66,6 @@ export default function Home() {
         fetchUserInfo();
         fetchArcadeList();
     }, []);
-
-    useEffect(() => {
-        if (toastOpen) {
-            const timer = setTimeout(() => {
-                setToastOpen(false);
-            }, 3000);
-            return () => clearTimeout(timer);
-        }
-    }, [toastOpen]);
 
     useEffect(() => {
         const fetchSongData = async () => {
@@ -144,13 +125,6 @@ export default function Home() {
                     ) : (
                         <DiscordLoginTip />
                     )}
-                </div>
-                <div
-                    className={`absolute right-10 bottom-10 transition ${toastOpen ? 'opacity-100' : 'opacity-0'}`}
-                >
-                    <Alert severity="info">
-                        Song data fetched successfully.
-                    </Alert>
                 </div>
             </ThemeProvider>
         </div>
