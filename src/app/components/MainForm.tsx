@@ -72,17 +72,19 @@ const MainForm = ({
                             ?.split('=')[1]
                     }`,
                 },
+                validateStatus: (status) => status === 200 || status === 401,
             },
         );
 
+        setSending(false);
         if (resp.status === 200) {
             setSubmitColor('success');
-            setSending(false);
-
-            setTimeout(() => {
-                setSubmitColor('primary');
-            }, 3000);
+        } else {
+            setSubmitColor('error');
         }
+        setTimeout(() => {
+            setSubmitColor('primary');
+        }, 3000);
     };
     return (
         <div className="bg-gray-800 p-5 rounded-2xl flex">
